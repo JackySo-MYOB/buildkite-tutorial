@@ -1,5 +1,5 @@
 ORG := "24x7classroom"
-TOKEN := "88ef1db1686185a8314d87ac32560448139a708b"
+TOKEN := $(shell aws ssm get-parameters --names "/bk/api/token" --with-decryption --query Parameters[].Value --output text)
 SLUG := "buildkite-tutorial-by-jacky-so"
 .phony: help
 
